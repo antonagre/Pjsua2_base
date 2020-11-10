@@ -47,8 +47,8 @@ class Account(pj.Account):
         return status
 
     def onRegState(self, prm):
+
         pass
-        #self.app.updateAccount(self)
 
     def onIncomingCall(self, prm):
         c = call.Call(self, call_id=prm.callId)
