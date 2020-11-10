@@ -28,8 +28,9 @@ class Call(pj.Call):
                mi.status == pj.PJSUA_CALL_MEDIA_REMOTE_HOLD):
                 m = self.getMedia(mi.index)
                 am = pj.AudioMedia.typecastFromMedia(m)
-                # connect ports
+                ##SET INPUT
                 ep.Endpoint.instance.audDevManager().getCaptureDevMedia().startTransmit(am)
+                ##SET OUTPUT
                 am.startTransmit(ep.Endpoint.instance.audDevManager().getPlaybackDevMedia())
 
                 if mi.status == pj.PJSUA_CALL_MEDIA_REMOTE_HOLD and not self.onhold:
